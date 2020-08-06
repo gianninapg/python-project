@@ -82,16 +82,13 @@ for key in data["DailyForecasts"]:
     # index = min(key["Temperature"]["Minimum"]["Value"])
     lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
     lowesttemp = min(lowtemp)
-    print(f"The lowest temperature will be {lowesttemp} and will occur on \n")
+    print(f"The lowest temperature will be {format_temperature(lowesttemp)} and will occur on \n")
     # print(len(date[0]))
 
     hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
     highesttemp = max(hightemp)
-    print(f"The lowest temperature will be {highesttemp}C and will occur on \n")
+    print(f"The highest temperature will be {format_temperature(highesttemp)} and will occur on \n")
 
-    lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
-    lowesttemp = min(lowtemp)
-    print(f"The highest temperature will be {lowesttemp}C and will occur on \n")
 
     # Dates = [
     #     ["Friday 19 June 2020", 8.3],
@@ -145,22 +142,12 @@ for key in data["DailyForecasts"]:
     # # print(lowest_temp)
     # print(f"{mintemp[0]} {mintemp[1]}")
 
-    # for value in len(mintemp)
-    #     print(min(value))
-
-
-    # for tea_category in tea_collection:
-#     #print(tea_category)
-#     print(f"{tea_category[0]} Teas:")
-#     for tea in tea_category[1:]:
-#         print(f"     {tea}")
-
 
     # average = (key["Temperature"]["Minimun"])
     # print(average)
 
-    # mintemp_avg = calculate_mean(mintemp,5)
-    # print(format_temperature(mintemp_avg)
+    mintemp_avg = calculate_mean(lowtemp[0],5)
+    print(format_temperature(mintemp_avg))
 
     #print(mean(format_temperature(mintemp_avg))
 
