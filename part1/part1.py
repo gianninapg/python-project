@@ -19,16 +19,7 @@ def format_temperature(temp):
     Returns:
         A string contain the temperature and "degrees celcius."
     """
-
     return f"{temp}{DEGREE_SYBMOL}"
-    # print(today temperature is {temp})
-    # format_temperature(degrees)
-
-
-    # for DEGREE_SYBMOL in DEGREE_SYBMOL.items():
-    # print(DEGREE_SYBMOL)
-    # temperature = json.loads(json_file, object_hook=weather)
-    # print(temperature.EpochRise, temperature.EpochSet)
 
 def convert_date(iso_string):
     """Converts and ISO formatted date into a human readable format.
@@ -63,8 +54,6 @@ def calculate_mean(total, num_items):
     Returns:
         An integer representing the mean of the numbers.
     """
-    # average = round(total/num_items)
-    # return average
     pass
 
 
@@ -77,10 +66,8 @@ def process_weather(forecast_file):
     Returns:
         A string containing the processed and formatted weather data.
     """
-    # return Minimum Temperature (mintemp) 
     pass
 
-#main is to compare testing file
 if __name__ == "__main__":
     print(process_weather("data/forecast_5days_a.json"))
 
@@ -97,7 +84,7 @@ for key in data["DailyForecasts"]:
     mintemp = (key["Temperature"]["Minimum"]["Value"])
     #converting to C wiht function defined above
     mintemp_f = convert_f_to_c(mintemp)
-    print(min(mintemp))
+    #print(min(mintemp))
 
 
     maxtemp = (key["Temperature"]["Maximum"]["Value"])
