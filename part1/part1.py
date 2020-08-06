@@ -71,16 +71,42 @@ def process_weather(forecast_file):
 if __name__ == "__main__":
     print(process_weather("data/forecast_5days_a.json"))
 
-lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
-lowesttemp = min(lowtemp)
-print(f"The lowest temperature will be {lowesttemp}\n")
 
 for key in data["DailyForecasts"]:
     #if key == "DailyForecasts":
     #print(data["DailyForecasts"])
 
     date = (key["Date"])
-    #print(date)
+    #print(min(date))
+
+    # index = min(key["Temperature"]["Minimum"]["Value"])
+    lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
+    lowesttemp = min(lowtemp)
+    print(f"The lowest temperature will be {lowesttemp} and will occur on \n")
+    # print(len(date[0]))
+
+    hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
+    highesttemp = max(hightemp)
+    print(f"The lowest temperature will be {highesttemp}C and will occur on \n")
+
+    lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
+    lowesttemp = min(lowtemp)
+    print(f"The highest temperature will be {lowesttemp}C and will occur on \n")
+
+    # Dates = [
+    #     ["Friday 19 June 2020", 8.3],
+    #     ["Saturday 20 June 2020", 10.6],
+    #     ["Sunday 21 June 2020", 14.4],
+    #     ["Monday 22 June 2020", 14.4],
+    #     ["Tuesday 23 June 2020", 10.6]
+    # ]
+    # print(min(Dates))
+
+    # minIndex = Dates.index(min(Dates))
+    # # mylist = (key["Temperature"]["Minimum"])
+    # print(minIndex)
+    
+    # datemin = date[index]
 
     mintemp = (key["Temperature"]["Minimum"]["Value"])
     #converting to C wiht function defined above
@@ -97,6 +123,10 @@ for key in data["DailyForecasts"]:
     print(f"Minimum Temperature: {format_temperature(mintemp_f)}")
     print(f"Maximum Temperature: {format_temperature(maxtemp_f)}")
 
+    # if mintemp_f == min(lowtemp):
+    #     print(date)
+    # if mintemp_f == 8.3:
+    #    print(date)
 
     day = (key["Day"]["LongPhrase"])
     print(f"Daytime: {day}")
