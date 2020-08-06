@@ -71,12 +71,13 @@ def process_weather(forecast_file):
 if __name__ == "__main__":
     print(process_weather("data/forecast_5days_a.json"))
 
-
+lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
+lowesttemp = min(lowtemp)
+print(f"The lowest temperature will be {lowesttemp}\n")
 
 for key in data["DailyForecasts"]:
     #if key == "DailyForecasts":
     #print(data["DailyForecasts"])
-    
 
     date = (key["Date"])
     #print(date)
@@ -124,9 +125,6 @@ for key in data["DailyForecasts"]:
 #     for tea in tea_category[1:]:
 #         print(f"     {tea}")
 
-    lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
-    lowesttemp = min(lowtemp)
-    print(lowesttemp)
 
     # average = (key["Temperature"]["Minimun"])
     # print(average)
