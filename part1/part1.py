@@ -97,7 +97,11 @@ for key in data["DailyForecasts"]:
 
     hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
     highesttemp = max(hightemp)
-    print(f"The highest temperature will be {format_temperature(highesttemp)} and will occur on \n")
+    
+    maxIndex = hightemp.index(max(hightemp))
+    date_max = Dates[maxIndex]
+    
+    print(f"The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max} \n")
 
 
     # Dates = [
