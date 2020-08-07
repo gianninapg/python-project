@@ -10,7 +10,6 @@ with open("data/forecast_5days_a.json") as json_file:
 # Output:
 #print(data)
 
-
 def format_temperature(temp):
     """Takes a temperature and returns it in string format with the degrees and celcius symbols.
     
@@ -73,16 +72,27 @@ if __name__ == "__main__":
 
 
 for key in data["DailyForecasts"]:
-    #if key == "DailyForecasts":
-    #print(data["DailyForecasts"])
 
     date = (key["Date"])
-    #print(min(date))
 
-    # index = min(key["Temperature"]["Minimum"]["Value"])
+    Dates = [
+        "Friday 19 June 2020", 
+        "Saturday 20 June 2020", 
+        "Sunday 21 June 2020", 
+        "Monday 22 June 2020", 
+        "Tuesday 23 June 2020"
+    ]
+
     lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
     lowesttemp = min(lowtemp)
-    print(f"The lowest temperature will be {format_temperature(lowesttemp)} and will occur on \n")
+    
+    minIndex = lowtemp.index(min(lowtemp))
+    #print(minIndex)
+
+    date_min = Dates[minIndex]
+    #print(date_min) 
+
+    print(f"The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}\n")
     # print(len(date[0]))
 
     hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
@@ -104,7 +114,7 @@ for key in data["DailyForecasts"]:
     # print(minIndex)
     
     # datemin = date[index]
-    
+
     mintemp = (key["Temperature"]["Minimum"]["Value"])
     #converting to C wiht function defined above
     mintemp_f = convert_f_to_c(mintemp)
@@ -139,7 +149,7 @@ for key in data["DailyForecasts"]:
 
 
     # lowest_temp = min(mintemp)
-    # # print(lowest_temp)
+    # print(lowest_temp)
     # print(f"{mintemp[0]} {mintemp[1]}")
 
 
