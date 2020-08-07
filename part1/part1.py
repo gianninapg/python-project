@@ -89,7 +89,12 @@ def process_weather(forecast_file):
             
         minIndex = lowtemp.index(min(lowtemp))
         date_min = Dates[minIndex]
-        print(f"    The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}")
+
+        #output = "5 Day Overview\n The lowest temperaturae will be {format_temperature(lowesttemp)} and will occur on {date_min}"
+
+        #print(f"    The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}")
+
+        output_1 = f"    The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}"
 
         hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
         highesttemp = max(hightemp)
@@ -97,19 +102,22 @@ def process_weather(forecast_file):
         maxIndex = hightemp.index(max(hightemp))
         date_max = Dates[maxIndex]
             
-        print(f"    The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max}")
+        #print(f"    The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max}")
+        output_2 = f"    The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max}"
 
         counter_lowtemp = len(lowtemp)
         sum_lowtemp = sum(lowtemp)
 
         low_avg = calculate_mean(sum_lowtemp,counter_lowtemp)
-        print(f"    The average low this week is {format_temperature(low_avg)}")   
+        #print(f"    The average low this week is {format_temperature(low_avg)}")
+        output_3 = f"    The average low this week is {format_temperature(low_avg)}"     
 
         counter_hightemp = len(hightemp)
         sum_hightemp = sum(hightemp)
 
         high_avg = calculate_mean(sum_hightemp, counter_hightemp)
-        print(f"    The average high this week is {format_temperature(high_avg)} \n")   
+        #print(f"    The average high this week is {format_temperature(high_avg)} \n")   
+        output_4 = f"    The average high this week is {format_temperature(high_avg)} \n"
 
 
         for key in data["DailyForecasts"]:
@@ -142,7 +150,20 @@ def process_weather(forecast_file):
             rainnight = (key["Night"]["RainProbability"])
             print(f"   Chance of rain:  {rainnight}%\n")
 
-        return forecast_file
+        #output = "5 Day Overview\n The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}\n The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max}"
+        
+        output = [
+            "5 Day Overview",
+            output_1,
+            output_2,
+            output_3,
+            output_4
+        ]
+        
+        return output[0:5]
+
+        # return output[0:2]
+        #return output
 
 if __name__ == "__main__":
     print(process_weather("data/forecast_5days_a.json"))
