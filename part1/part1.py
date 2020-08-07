@@ -53,7 +53,8 @@ def calculate_mean(total, num_items):
     Returns:
         An integer representing the mean of the numbers.
     """
-    pass
+    mean = round(total/num_items,1)
+    return mean
 
 
 def process_weather(forecast_file):
@@ -70,38 +71,62 @@ def process_weather(forecast_file):
 if __name__ == "__main__":
     print(process_weather("data/forecast_5days_a.json"))
 
+print(f"5 Day Overview\n")
+
+Dates = [
+    "Friday 19 June 2020", 
+    "Saturday 20 June 2020", 
+    "Sunday 21 June 2020", 
+    "Monday 22 June 2020", 
+    "Tuesday 23 June 2020"
+ ]
+
+lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
+lowesttemp = min(lowtemp)
+    
+minIndex = lowtemp.index(min(lowtemp))
+#print(minIndex)
+date_min = Dates[minIndex]
+#print(date_min) 
+
+print(f"The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}\n")
+# print(len(date[0]))
+
+hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
+highesttemp = max(hightemp)
+    
+maxIndex = hightemp.index(max(hightemp))
+date_max = Dates[maxIndex]
+    
+print(f"The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max} \n")
+
+#counter = 10
+
+
+# while counter > 0:
+#     #print(counter)
+#     if calculate_mean(sum_lowtemp,counter):
+#         print(sum_lowtemp,counter)
+#     counter -= 1 
+counter_lowtemp = len(lowtemp)
+sum_lowtemp = sum(lowtemp)
+
+low_avg = calculate_mean(sum_lowtemp,counter_lowtemp)
+#print(low_avg)
+print(f"The average low this week is {format_temperature(low_avg)} \n")   
+
+counter_hightemp = len(hightemp)
+sum_hightemp = sum(hightemp)
+
+high_avg = calculate_mean(sum_hightemp, counter_hightemp)
+#print(high_avg)
+print(f"The average high this week is {format_temperature(high_avg)} \n")   
+
+
 
 for key in data["DailyForecasts"]:
 
     date = (key["Date"])
-
-    Dates = [
-        "Friday 19 June 2020", 
-        "Saturday 20 June 2020", 
-        "Sunday 21 June 2020", 
-        "Monday 22 June 2020", 
-        "Tuesday 23 June 2020"
-    ]
-
-    lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
-    lowesttemp = min(lowtemp)
-    
-    minIndex = lowtemp.index(min(lowtemp))
-    #print(minIndex)
-
-    date_min = Dates[minIndex]
-    #print(date_min) 
-
-    print(f"The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}\n")
-    # print(len(date[0]))
-   
-    hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
-    highesttemp = max(hightemp)
-    
-    maxIndex = hightemp.index(max(hightemp))
-    date_max = Dates[maxIndex]
-    
-    print(f"The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max} \n")
 
     # Dates = [
     #     ["Friday 19 June 2020", 8.3],
@@ -159,8 +184,7 @@ for key in data["DailyForecasts"]:
     # average = (key["Temperature"]["Minimun"])
     # print(average)
 
-    mintemp_avg = calculate_mean(lowtemp[0:4],5)
-    print(format_temperature(mintemp_avg))
+    
 
     #print(mean(format_temperature(mintemp_avg))
 
