@@ -112,7 +112,7 @@ for key in data["DailyForecasts"]:
     # print(minIndex)
     
     # datemin = date[index]
-
+    
     mintemp = (key["Temperature"]["Minimum"]["Value"])
     #converting to C wiht function defined above
     mintemp_f = convert_f_to_c(mintemp)
