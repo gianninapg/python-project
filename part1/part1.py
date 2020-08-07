@@ -73,22 +73,30 @@ if __name__ == "__main__":
 
 
 for key in data["DailyForecasts"]:
-    #if key == "DailyForecasts":
-    #print(data["DailyForecasts"])
 
     date = (key["Date"])
-    #print(min(date))
+    
+    Dates = [
+        "Saturday 20 June 2020", 
+        "Sunday 21 June 2020", 
+        "Monday 22 June 2020", 
+        "Tuesday 23 June 2020",
+        "Friday 19 June 2020"
+    ]
 
-    # index = min(key["Temperature"]["Minimum"]["Value"])
     lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
     lowesttemp = min(lowtemp)
-    print(f"The lowest temperature will be {format_temperature(lowesttemp)} and will occur on \n")
+    minIndex = lowtemp.index(min(lowtemp))
+    #print(minIndex)
+    date_min = Dates[minIndex]
+    #print(date_min)
+    
+    print(f"The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min} \n")
     # print(len(date[0]))
-
+   
     hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
     highesttemp = max(hightemp)
     print(f"The highest temperature will be {format_temperature(highesttemp)} and will occur on \n")
-
 
     # Dates = [
     #     ["Friday 19 June 2020", 8.3],
@@ -146,7 +154,7 @@ for key in data["DailyForecasts"]:
     # average = (key["Temperature"]["Minimun"])
     # print(average)
 
-    mintemp_avg = calculate_mean(lowtemp[0],5)
+    mintemp_avg = calculate_mean(lowtemp[0:4],5)
     print(format_temperature(mintemp_avg))
 
     #print(mean(format_temperature(mintemp_avg))
