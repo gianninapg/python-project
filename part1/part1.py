@@ -44,7 +44,7 @@ def convert_f_to_c(temp_in_farenheit):
     """
     # c = round((temp_in_farenheit-32)*5/9,1)
     # return c
-    return round((temp_in_farenheit - 32) * 5/9, 1)
+    return round((temp_in_farenheit - 32) * 5/9,1)
 
 def calculate_mean(total, num_items):
     """Calculates the mean.
@@ -225,22 +225,23 @@ def process_weather(forecast_file):
         list_daily.append(output_7)
 
      # sum totals
-        max_temp_a += maxtemp 
+        max_temp_a += maxtemp
         min_temp_a += mintemp
         number_days += 1
+
      # for 8 day forecast
         if min_temp_w == 0:
             min_temp_w = mintemp
             min_date_w = key["Date"]
         else:
-            if min_temp_d < min_temp_w:
+            if mintemp < min_temp_w:
                 min_temp_w = mintemp
                 min_date_w = key["Date"]
         if max_temp_w == 0:
             max_temp_w = maxtemp
             max_date_w = key["Date"]
         else:
-            if max_temp_d > max_temp_w:
+            if maxtemp > max_temp_w:
                 max_temp_w = maxtemp
                 max_date_w = key["Date"]
 
@@ -266,13 +267,6 @@ def process_weather(forecast_file):
         final_output = f"{list_summary}{list_daily}"
         final_output = final_output + "\n"
         return final_output
-
-        
-        #return output
-
-        # return output[0:2]
-        #return output
-
 # if __name__ == "__main__":
 #     print(process_weather("data/forecast_5days_a.json"))
 
