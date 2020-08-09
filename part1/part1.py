@@ -68,69 +68,73 @@ def process_weather(forecast_file):
     Returns:
         A string containing the processed and formatted weather data.
     """
-    # forecast_file = json_file
-    # return forecast_file
+
     with open(forecast_file) as json_file:
         data = json.load(json_file)
 
         #print(process_weather(json_file))
         #print(f"5 Day Overview\n")
 
-    output = """
-    5 Day Overview
-        The lowest temperature will be 8.3°C, and will occur on Friday 19 June 2020.
-        The highest temperature will be 22.2°C, and will occur on Sunday 21 June 2020.
-        The average low this week is 11.7°C.
-        The average high this week is 20.1°C.
-    -------- Friday 19 June 2020 --------
-    Minimum Temperature: 8.3°C
-    Maximum Temperature: 17.8°C
-    Daytime: Sunshine mixing with some clouds
-        Chance of rain:  1%
-    Nighttime: Clear
-        Chance of rain:  0%
-    -------- Saturday 20 June 2020 --------
-                Minimum Temperature: 10.6°C
-                Maximum Temperature: 19.4°C
-                Daytime: Plenty of sunshine
-                    Chance of rain:  0%
-                Nighttime: Clear
-                    Chance of rain:  1%
-                -------- Sunday 21 June 2020 --------
-                Minimum Temperature: 14.4°C
-                Maximum Temperature: 22.2°C
-                Daytime: Pleasant with sunshine
-                    Chance of rain:  1%
-                Nighttime: Mainly clear
-                    Chance of rain:  1%
-                -------- Monday 22 June 2020 --------
-                Minimum Temperature: 14.4°C
-                Maximum Temperature: 22.2°C
-                Daytime: Increasing clouds and breezy; periods of rain late in the afternoon
-                    Chance of rain:  63%
-                Nighttime: Breezy in the evening with periods of rain; otherwise, clouds breaking
-                    Chance of rain:  71%
-                -------- Tuesday 23 June 2020 --------
-                Minimum Temperature: 10.6°C
-                Maximum Temperature: 18.9°C
-                Daytime: A shower; plenty of clouds in the morning, then times of clouds and sun in the afternoon
-                    Chance of rain:  56%
-                Nighttime: Partly cloudy with a shower in spots late
-                    Chance of rain:  46%
-                """
-    Dates = [
-            "Friday 19 June 2020", 
-            "Saturday 20 June 2020", 
-            "Sunday 21 June 2020", 
-            "Monday 22 June 2020", 
-            "Tuesday 23 June 2020"
-        ]
+#     output = """
+# 5 Day Overview
+#     The lowest temperature will be 8.3°C, and will occur on Friday 19 June 2020.
+#     The highest temperature will be 22.2°C, and will occur on Sunday 21 June 2020.
+#     The average low this week is 11.7°C.
+#     The average high this week is 20.1°C.
+# -------- Friday 19 June 2020 --------
+# Minimum Temperature: 8.3°C
+# Maximum Temperature: 17.8°C
+# Daytime: Sunshine mixing with some clouds
+#     Chance of rain:  1%
+# Nighttime: Clear
+#     Chance of rain:  0%
 
-    lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
-    lowesttemp = min(lowtemp)
+# -------- Saturday 20 June 2020 --------
+# Minimum Temperature: 10.6°C
+# Maximum Temperature: 19.4°C
+# Daytime: Plenty of sunshine
+#     Chance of rain:  0%
+# Nighttime: Clear
+#     Chance of rain:  1%
+
+# -------- Sunday 21 June 2020 --------
+# Minimum Temperature: 14.4°C
+# Maximum Temperature: 22.2°C
+# Daytime: Pleasant with sunshine
+#     Chance of rain:  1%
+# Nighttime: Mainly clear
+#     Chance of rain:  1%
+
+# -------- Monday 22 June 2020 --------
+# Minimum Temperature: 14.4°C
+# Maximum Temperature: 22.2°C
+# Daytime: Increasing clouds and breezy; periods of rain late in the afternoon
+#     Chance of rain:  63%
+# Nighttime: Breezy in the evening with periods of rain; otherwise, clouds breaking
+#     Chance of rain:  71%
+
+# -------- Tuesday 23 June 2020 --------
+# Minimum Temperature: 10.6°C
+# Maximum Temperature: 18.9°C
+# Daytime: A shower; plenty of clouds in the morning, then times of clouds and sun in the afternoon
+#     Chance of rain:  56%
+# Nighttime: Partly cloudy with a shower in spots late
+#     Chance of rain:  46%
+
+#  """
+    # Dates = [
+    #         "Friday 19 June 2020", 
+    #         "Saturday 20 June 2020", 
+    #         "Sunday 21 June 2020", 
+    #         "Monday 22 June 2020", 
+    #         "Tuesday 23 June 2020"
+    #     ]
+
+    # lowtemp = [8.3, 10.6, 14.4, 14.4, 10.6]
+    # lowesttemp = min(lowtemp)
             
-    minIndex = lowtemp.index(min(lowtemp))
-    date_min = Dates[minIndex]
+    # minIndex = lowtemp.index(min(lowtemp))
+    # date_min = Dates[minIndex]
 
         #output = "5 Day Overview\n The lowest temperaturae will be {format_temperature(lowesttemp)} and will occur on {date_min}"
 
@@ -138,83 +142,142 @@ def process_weather(forecast_file):
 
         #output_1 = f"    The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}"
 
-    hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
-    highesttemp = max(hightemp)
+    # hightemp = [17.8, 19.4, 22.2, 22.2, 18.9]
+    # highesttemp = max(hightemp)
             
-    maxIndex = hightemp.index(max(hightemp))
-    date_max = Dates[maxIndex]
+    # maxIndex = hightemp.index(max(hightemp))
+    # date_max = Dates[maxIndex]
             
         #print(f"    The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max}")
         #output_2 = f"    The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max}"
 
-    counter_lowtemp = len(lowtemp)
-    sum_lowtemp = sum(lowtemp)
+    # counter_lowtemp = len(lowtemp)
+    # sum_lowtemp = sum(lowtemp)
 
-    low_avg = calculate_mean(sum_lowtemp,counter_lowtemp)
+    # low_avg = calculate_mean(sum_lowtemp,counter_lowtemp)
         #print(f"    The average low this week is {format_temperature(low_avg)}")
         #output_3 = f"    The average low this week is {format_temperature(low_avg)}"     
 
-    counter_hightemp = len(hightemp)
-    sum_hightemp = sum(hightemp)
+    # counter_hightemp = len(hightemp)
+    # sum_hightemp = sum(hightemp)
 
-    high_avg = calculate_mean(sum_hightemp, counter_hightemp)
+    # high_avg = calculate_mean(sum_hightemp, counter_hightemp)
         #print(f"    The average high this week is {format_temperature(high_avg)} \n")   
         #output_4 = f"    The average high this week is {format_temperature(high_avg)} \n"
 
+    # variables for while loops
+    min_temp_w = 0
+    max_temp_w = 0
+    min_temp_a = 0
+    max_temp_a = 0
+    number_days = 0
 
+    # final output list
+    list_daily = []
+    list_summary = []
+
+    #for loop
     for key in data["DailyForecasts"]:
 
         date = (key["Date"])
-        date_format = convert_date(date)
-            #print(f"--------{convert_date(date)}--------")
-
-            #date = convert_date(date)
 
         mintemp = (key["Temperature"]["Minimum"]["Value"])
-            #converting to C wiht function defined above
-        mintemp_f = format_temperature(convert_f_to_c(mintemp))
-            #print(min(mintemp))
-
+        #converting to Celcius wiht function defined above
+        mintemp_f = convert_f_to_c(mintemp)
+        #format celcius temperauture
+        mintemp_c = format_temperature(mintemp_f)
+        
         maxtemp = (key["Temperature"]["Maximum"]["Value"])
-            #converting to C
-        maxtemp_f = format_temperature(convert_f_to_c(maxtemp))
-
-            #print(mintemp,maxtemp)
-
-            #print(f"--------{convert_date(date)}--------")
-            # print(f"Minimum Temperature: {format_temperature(mintemp_f)}")
-            # print(f"Maximum Temperature: {format_temperature(maxtemp_f)}")
+        #converting to Celcius
+        maxtemp_f = convert_f_to_c(maxtemp)
+        #print(f"Minimum Temperature: {format_temperature(mintemp_f)}")
+        maxtemp_c = format_temperature(maxtemp_f)
+        #print(f"Maximum Temperature: {format_temperature(maxtemp_f)}")
 
         day = (key["Day"]["LongPhrase"])
-            #print(f"Daytime: {day}")
+        #print(f"Daytime: {day}")
 
         rainday = (key["Day"]["RainProbability"])
-            #print(f"   Chance of rain: {rainday}%")
+        #print(f"   Chance of rain: {rainday}%")
 
         night = (key["Night"]["LongPhrase"])
-            #print(f"Nighttime: {night}")
+        #print(f"Nighttime: {night}")
 
         rainnight = (key["Night"]["RainProbability"])
-            #print(f"   Chance of rain:  {rainnight}%\n")
+        #print(f"   Chance of rain:  {rainnight}%\n")
 
-        #output = "5 Day Overview\n The lowest temperature will be {format_temperature(lowesttemp)} and will occur on {date_min}\n The highest temperature will be {format_temperature(highesttemp)} and will occur on {date_max}"
+        #print list
+        output_1 = f"--------{convert_date(date)}--------"
+        list_daily.append(output_1)
+        output_2 = f"Minimum Temperature: {mintemp_c}"
+        list_daily.append(output_2)
+        output_3 = f"Maximum Temperature: {maxtemp_c}"
+        list_daily.append(output_3)
+        output_4 = f"Daytime: {day}"
+        list_daily.append(output_4)
+        output_5 = f"    Chance of rain: {rainday}%"
+        list_daily.append(output_5)
+        output_6 = f"Nighttime: {night}"
+        list_daily.append(output_6)
+        output_7 = f"    Chance of rain:  {rainnight}%\n"
+        list_daily.append(output_7)
+
+     # sum totals
+        max_temp_a += maxtemp 
+        min_temp_a += mintemp
+        number_days += 1
+     # for 8 day forecast
+        if min_temp_w == 0:
+            min_temp_w = mintemp
+            min_date_w = key["Date"]
+        else:
+            if min_temp_d < min_temp_w:
+                min_temp_w = mintemp
+                min_date_w = key["Date"]
+        if max_temp_w == 0:
+            max_temp_w = maxtemp
+            max_date_w = key["Date"]
+        else:
+            if max_temp_d > max_temp_w:
+                max_temp_w = maxtemp
+                max_date_w = key["Date"]
+
+        # convert temperature to C
+        c_min_temp_w = format_temperature(convert_f_to_c(min_temp_w))
+        c_max_temp_w = format_temperature(convert_f_to_c(max_temp_w))
+    
+        # final print list
+        output_1 = f"{number_days} Day Overview"
+        list_summary.append(output_1)
+        output_2 = f"    The lowest temperature will be {c_min_temp_w}, and will occur on {convert_date(min_date_w)}."
+        list_summary.append(output_2)
+        output_3 = f"    The highest temperature will be {c_max_temp_w}, and will occur on {convert_date(max_date_w)}."
+        list_summary.append(output_3)
+        output_4 = f"    The average low this week is {format_temperature(convert_f_to_c(calculate_mean(min_temp_a, number_days)))}."
+        list_summary.append(output_4)
+        output_5 = f"    The average high this week is {format_temperature(convert_f_to_c(calculate_mean(max_temp_a, number_days)))}.\n\n"
+        list_summary.append(output_5)
+        # # format final print list
+        list_summary = "\n".join(list_summary)
+        list_daily = "\n".join(list_daily)
+        # add together final print list
+        final_output = f"{list_summary}{list_daily}"
+        final_output = final_output + "\n"
+        return final_output
+
         
-        # output = [
-        #     "5 Day Overview",
-        #     output_1,
-        #     output_2,
-        #     output_3,
-        #     output_4
-        # ]
-        
-        return output
+        #return output
 
         # return output[0:2]
         #return output
 
+# if __name__ == "__main__":
+#     print(process_weather("data/forecast_5days_a.json"))
+
 if __name__ == "__main__":
     print(process_weather("data/forecast_5days_a.json"))
-
+    print(process_weather("data/forecast_5days_b.json"))
+    print(process_weather("data/forecast_8days.json"))
 
 # print(process_weather(json_file))
 # #print(f"5 Day Overview\n")
