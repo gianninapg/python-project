@@ -42,9 +42,9 @@ def convert_f_to_c(temp_in_farenheit):
     Returns:
         An integer representing a temperature in degrees celcius.
     """
-    c = round((temp_in_farenheit-32)*5/9,1)
-    return c
-
+    # c = round((temp_in_farenheit-32)*5/9,1)
+    # return c
+    return round((temp_in_farenheit - 32) * 5/9, 1)
 
 def calculate_mean(total, num_items):
     """Calculates the mean.
@@ -55,9 +55,11 @@ def calculate_mean(total, num_items):
     Returns:
         An integer representing the mean of the numbers.
     """
-    mean = round(total/num_items,1)
+    # mean = round(total/num_items,1)
+    # return mean
+    mean = float(total)/ num_items
+    mean = round(mean,1)
     return mean
-
 
 def process_weather(forecast_file):
     """Converts raw weather data into meaningful text.
